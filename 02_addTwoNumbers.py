@@ -13,7 +13,7 @@ class ListNode:
         self.next = None
 
 
-# ----- Solution #1 - 18.93%
+# ----- Solution #1
 def convert(a_list):
     a = str(a_list.val)
     next_node = a_list.next
@@ -39,7 +39,7 @@ class Solution:
         return [int(x) for x in str(final_int)[::-1]]
 
 
-# ----- Solution #2 - 15.23%
+# ----- Solution #2
 def convert(a_list):
     val = [a_list.val]
     while a_list.next:
@@ -61,7 +61,7 @@ class Solution:
         return [int(x) for x in str(final_int)[::-1]]
 
 
-# ----- Solution #3 - 30.60%
+# ----- Solution #3
 class Solution:
     @staticmethod
     def addTwoNumbers(l1, l2):

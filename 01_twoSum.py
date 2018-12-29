@@ -14,7 +14,7 @@ n = range(2000)
 t = 2500
 
 
-# ----- Solution #1: First attempted solution
+# ----- Solution #1
 class Solution:
     @staticmethod
     def twoSum(nums, target):
@@ -35,7 +35,7 @@ ts = time.time()
 print((time.time() - ts)*1000)
 
 
-# ----- Final Solution Used
+# ----- Solution #2
 class Solution:
     @staticmethod
     def twoSum(nums, target):
