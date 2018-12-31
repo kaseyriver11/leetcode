@@ -4,7 +4,7 @@ Given a 32-bit signed integer, reverse digits of an integer.
 import numpy as np
 
 
-# ----- Solution #1: 13.60%
+# ----- Solution #1
 class Solution:
     @staticmethod
     def reverse(x):
@@ -27,7 +27,7 @@ class Solution:
 Solution.reverse(15)
 
 
-# ----- Solution #1: 13.60%
+# ----- Solution #2
 class Solution:
     @staticmethod
     def reverse(x):
