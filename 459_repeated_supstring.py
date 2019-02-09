@@ -44,7 +44,3 @@ class Solution(object):
 
         ss = s[1:] + s[:-1]
         return ss.find(s) != -1
-
-s = "abab"
-
-s[1:] + s[:-1]
