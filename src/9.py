@@ -46,6 +46,7 @@ class Solution:
                 return False
         return True
 
+
 # ----- Solution #2:
 class Solution:
     def isPalindrome(self, x):
@@ -81,4 +82,5 @@ class Solution:
         return True
 
 
-Solution().isPalindrome(12345678999999999999999999999999999999999999999999999999999999999999999999999999999999987654321)
+Solution().isPalindrome(
+    12345678999999999999999999999999999999999999999999999999999999999999999999999999999999987654321)

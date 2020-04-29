@@ -12,6 +12,7 @@ Explanation: There is no common prefix among the input strings.
 
 """
 
+
 # Solution #1
 class Solution:
     def longestCommonPrefix(self, strs):
@@ -29,6 +30,7 @@ class Solution:
             return strs[0]
         else:
             return ""
+
 
 strs = ["flower", "flow", "flight"]
 Solution().longestCommonPrefix(strs)

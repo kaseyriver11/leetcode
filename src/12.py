@@ -28,6 +28,7 @@ class Solution:
 
         return th[thousand] + hu[hundred] + te[ten] + on[one]
 
+
 Solution().intToRoman(1200)
 
 
@@ -51,5 +52,6 @@ class Solution:
         ten, one = divmod(num, 10)
 
         return lth[thousand] + lhu[hundred] + lte[ten] + lon[one]
+
 
 Solution().intToRoman(1200)

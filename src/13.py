@@ -27,7 +27,7 @@ Given a roman numeral, convert it to an integer. Input is guaranteed to be withi
 """
 
 d = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
-st = dict(I=None, V='I', X='I', L='X', C='X', D='C', M='C')
+st = dict(I=None, V="I", X="I", L="X", C="X", D="C", M="C")
 
 
 # ----- Solution #1
@@ -40,7 +40,7 @@ class Solution:
                 val += d[s[left]] - d[st[s[left]]]
                 left -= 2
                 print(val)
-                print('top')
+                print("top")
             else:
                 val += d[s[left]]
                 left -= 1
@@ -50,7 +50,7 @@ class Solution:
 
 # ----- Solution #2
 d = dict(I=1, V=5, X=10, L=50, C=100, D=500, M=1000)
-st = dict(I=['V', 'X'], X=['L', 'C'], C=['D', 'M'], V=[], L=[], D=[], M=[])
+st = dict(I=["V", "X"], X=["L", "C"], C=["D", "M"], V=[], L=[], D=[], M=[])
 
 
 class Solution:
@@ -66,6 +66,7 @@ class Solution:
                 place -= 1
 
         return val
+
 
 Solution().romanToInt("CXXIII")
 Solution().romanToInt("MCMXCIX")

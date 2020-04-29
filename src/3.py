@@ -19,6 +19,8 @@ Explanation: The answer is "wke", with the length of 3.
 """
 
 # ----- Solution #1
+
+
 class Solution:
     def lengthOfLongestSubstring(self, s):
         """
@@ -95,4 +97,3 @@ Solution().lengthOfLongestSubstring("au")
 Solution().lengthOfLongestSubstring(" ")
 Solution().lengthOfLongestSubstring("jlygy")
 Solution().lengthOfLongestSubstring("uqinntq")
-

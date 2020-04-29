@@ -24,6 +24,7 @@ class Solution:
         else:
             return a
 
+
 Solution.reverse(15)
 
 
@@ -44,5 +45,6 @@ class Solution:
             return 0
         else:
             return a
+
 
 Solution.reverse(15)

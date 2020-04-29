@@ -47,6 +47,7 @@ def convert(a_list):
         a_list = a_list.next
     return sum([item * 10**i for i, item in enumerate(val)])
 
+
 class Solution:
     @staticmethod
     def addTwoNumbers(l1, l2):
@@ -84,25 +85,9 @@ class Solution:
         return a
 
 
-node1 = ListNode(2)
-node2 = ListNode(4)
-node3 = ListNode(3)
-node1.next = node2
-node2.next = node3
-
-node11 = ListNode(5)
-node22 = ListNode(6)
-node33 = ListNode(4)
-node11.next = node22
-node22.next = node33
-
-
-l1 = node1
-l2 = node11
-
-Solution.addTwoNumbers(l1, l2)
-
 # ----- Solution #4
+
+
 class Solution(object):
     @staticmethod
     def addTwoNumbers(l1, l2):
