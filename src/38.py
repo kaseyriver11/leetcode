@@ -22,3 +22,24 @@ Input: 4
 Output: "1211"
 """
 
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        if n == 1:
+            return "1"
+        v = "1"
+        for i in range(2, n+1):
+            j = 1
+            count = 1
+            new_v = ""
+            while j < len(v):
+                if v[j-1] == v[j]:
+                    count += 1
+                else:
+                    new_v += str(count) + str(v[j-1])
+                    count = 1
+                j += 1
+            new_v += str(count) + str(v[j-1])
+            v = new_v
+        return v
+
+Solution().countAndSay(4)
