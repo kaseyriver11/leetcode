@@ -4,106 +4,67 @@ and each of their nodes contain a single digit. Add the two numbers and return i
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 """
-
-
-# Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
 
 
-# ----- Solution #1
-def convert(a_list):
-    a = str(a_list.val)
-    next_node = a_list.next
-    while next_node:
-        a = a + str(next_node.val)
-        next_node = next_node.next
-    return int(a[::-1])
-
-
 class Solution:
     @staticmethod
-    def addTwoNumbers(l1, l2):
+    def listNodeToVal(ln):
+        value = 0
+        count = 0
+        while ln.next:
+            value += ln.val * 10**count
+            count +=1
+            ln = ln.next
+        value += ln.val * 10**count
+        return value
+
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        """List nodes are a newer concept to me. Here are the steps I took.
+
+        1. Convert the list node to a value
+        2. Convert this value to its reverse
+        3. Create a new ListNode to output
         """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        int1 = convert(l1)
-        int2 = convert(l2)
+        v3 = self.listNodeToVal(l1) + self.listNodeToVal(l2)
+        final_list = [int(x) for x in str(v3)[::-1]]
+        final_ln = ListNode(final_list[0])
+        if len(final_list) > 0:
+            temp_ln = final_ln
+            for val in final_list[1:]:
+                temp_ln.next = ListNode(val)
+                temp_ln = temp_ln.next
+        return final_ln
 
-        final_int = int1 + int2
+# Create an example
+example_list = [1, 2, 3]
+l1 = ListNode(1)
+l1.next = ListNode(2)
+l1.next.next = ListNode(3)
 
-        return [int(x) for x in str(final_int)[::-1]]
-
-
-# ----- Solution #2
-def convert(a_list):
-    val = [a_list.val]
-    while a_list.next:
-        val = val + [a_list.next.val]
-        a_list = a_list.next
-    return sum([item * 10**i for i, item in enumerate(val)])
+%timeit -n 100 Solution().addTwoNumbers(l1, l1)
 
 
-class Solution:
-    @staticmethod
-    def addTwoNumbers(l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        int1 = convert(l1)
-        int2 = convert(l2)
-        final_int = int1 + int2
-        return [int(x) for x in str(final_int)[::-1]]
+# Profile list node to string
+def listNodeToInt(listNode):
+    s1 = ""
+    while listNode.next:
+        s1 += str(listNode.val)
+        listNode = listNode.next
+    s1 += str(listNode.val)
+    return int(s1[::-1])
+%timeit -n 100 listNodeToInt(l1)
 
-
-# ----- Solution #3
-class Solution:
-    @staticmethod
-    def addTwoNumbers(l1, l2):
-        v = 0
-        a = []
-        while l1 or l2:
-            if l1:
-                v += l1.val
-                l1 = l1.next
-            if l2:
-                v += l2.val
-                l2 = l2.next
-
-            a.append(v % 10)
-            v //= 10
-
-        if v != 0:
-            a.append(v)
-
-        return a
-
-
-# ----- Solution #4
-
-
-class Solution(object):
-    @staticmethod
-    def addTwoNumbers(l1, l2):
-        end_result = ListNode(0)
-        result_tail = end_result
-        carry = 0
-
-        while l1 or l2 or carry:
-            val1 = (carry + l1.val if l1 else carry)
-            val2 = (val1 + l2.val if l2 else val1)
-            carry, out = divmod(val2, 10)
-
-            result_tail.next = ListNode(out)
-            result_tail = result_tail.next
-
-            l1 = (l1.next if l1 else None)
-            l2 = (l2.next if l2 else None)
-
-        return end_result.next
+# What about keeping it as an integer
+def listNodeToVal(ln):
+    value = 0
+    count = 0
+    while ln.next:
+        value += ln.val * 10**count
+        count +=1
+        ln = ln.next
+    value += ln.val * 10**count
+    return value
